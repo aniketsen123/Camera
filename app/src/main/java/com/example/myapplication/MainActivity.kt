@@ -7,6 +7,8 @@ import android.location.*
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -104,13 +106,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun takePhoto() {
+
         val imageCapture=imageCapture?:return
         val photofile=
             File(outputDirectry, SimpleDateFormat(Constants.fileFormat, Locale.getDefault()).format(System.currentTimeMillis())+".jpg")
         val outputOption=androidx.camera.core.ImageCapture.OutputFileOptions.Builder(photofile).build()
         imageCapture.takePicture(outputOption, ContextCompat.getMainExecutor(this),
             object:ImageCapture.OnImageSavedCallback{
+
+
                 override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
+
                     val saveUri= Uri.fromFile(photofile)
                     val ms="Photo Saved"
                     Toast.makeText(this@MainActivity,"$ms$saveUri", Toast.LENGTH_SHORT).show()
