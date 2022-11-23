@@ -105,7 +105,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun takePhoto() {
         val imageCapture=imageCapture?:return
-
         val photofile=
             File(outputDirectry, SimpleDateFormat(Constants.fileFormat, Locale.getDefault()).format(System.currentTimeMillis())+".jpg")
         val outputOption=androidx.camera.core.ImageCapture.OutputFileOptions.Builder(photofile).build()
