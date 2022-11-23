@@ -71,6 +71,8 @@ class MainActivity : AppCompatActivity() {
                 val stri=day.toString()+"-"+month.toString()+"-"+year.toString()
                 val textview1=findViewById<TextView>(R.id.testText1)
                 textview1.text=stri
+                val textView2=findViewById<TextView>(R.id.testText4)
+                textView2.text=address?.get(0)?.getAddressLine(0).toString()
                 val time=hour.toString()+":"+minute.toString()
                 val textview2=findViewById<TextView>(R.id.testText2)
                 textview2.text=time
